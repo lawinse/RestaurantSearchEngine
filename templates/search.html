@@ -1,0 +1,295 @@
+$def with(dict, data1, data2, session)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>4DKSindex</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	
+	<link href="static/src/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/src/css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/src/img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/src/img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/src/img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="static/src/img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="static/src/img/favicon.ico" type="image/x-icon" >
+  
+	<script type="text/javascript" src="static/src/js/jquery.min.js"></script>
+	<script type="text/javascript" src="static/src/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="static/src/js/scripts.js"></script>
+</head>
+<style>
+	div#searchbox
+			{
+				position:relative
+				right:0px;
+				left:0px;
+				margin-top:30px;
+				margin-left:auto;
+				margin-right:auto;
+			}
+	div#but
+			{
+				position:relative
+				right:0px;
+				left:0px;
+				margin-top:80px;
+				margin-left:auto;
+				margin-right:auto;
+				<!--width:900px;-->
+			}
+	div#logo
+			{
+				position:relative
+				right:0px;
+				left:0px;
+				margin-top:auto;
+				margin-left:auto;
+				margin-right:auto;
+				<!--width:900px;-->
+			}
+	div#sres
+			{
+				position:relative
+				right:0px;
+				left:0px;
+				margin-top:0px;
+				margin-left:auto;
+				margin-right:auto;
+			}
+	div#neirong
+			{
+				position:relative
+				right:0px;
+				left:0px;
+				margin-top:0px;
+				margin-left:auto;
+				margin-right:auto;
+			}
+	div#likeit
+			{
+				position:relative
+				right:0px;
+				left:0px;
+				margin-top:0px;
+				margin-left:auto;
+				margin-right:auto;
+			}
+	div#titlelogo
+			{
+				position:relative
+				right:0px;
+				left:0px;
+				margin-top:auto;
+				margin-left:30px;
+				margin-right:auto;
+			}
+	div#about
+			{
+				position:relative
+				right:auto;
+				left:500px;
+				margin-top:0px;
+				margin-left:450px;
+				margin-right:auto;
+			}
+	div#shoucang
+			{
+				position:relative
+				right:0px;
+				left:50px;
+				margin-left:38px;
+				margin-right:auto;
+				margin-top:-10px;
+			}
+	.link1
+			{
+			color:#FF0000;
+			}
+	#btt a
+			{
+				position:fixed;
+				right:10px;
+				bottom:10px;
+
+				text-decoration:none;
+				font-size:14px;
+				color:#bbb;
+				font-weight: 900
+			}
+
+	#btt a:hover {color:#ccc;text-decoration: underline;}
+	#btt a:visit {color:#639}
+
+</style>
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+			<div class="row clearfix">
+				<div class="col-md-6 column">
+					<div id = "titlelogo">
+						<a href = "index"><img alt="140x140" src="static/src/img/140.png"></a>
+					</div>
+				</div>
+				<div class="col-md-6 column">
+				</div>
+			</div>
+		</div>
+		<form action="/s" class="form-search">
+				<div class="col-md-8 column" id = "searchbox">
+						<li>
+							$if (session.username!=''):
+								<p><font face = "幼圆">Current User: $session.username  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="pchome">个人主页</a></font></p>
+							$else:
+								<p>Weclome!</p>
+						</li>
+						<p><font size = "7" face = "幼圆"><b>在  </b></font>
+						<font size = "5" face = "幼圆">
+						<input name="adr" class="input-medium search-query" type="text" style = "width:180px" value="$data1" /></font>
+						<font size = "7" face = "幼圆"><b>  搜索 </b></font>
+						<font size = "5" face = "幼圆">
+						<input name="cmd" class="input-medium search-query" type="text" style = "width:360px" value="$data2" /><font> 
+						<br />
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<input type="radio" name="typ" value="price" /> 价格   
+						<input type="radio" name="typ" value="distance" /> 距离
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+						<input type="radio" name="bs" value="lth" />从低到高
+						<input type="radio" name="bs" value="htl" /> 从高到低</font>
+				</div>
+				<div class="col-md-2 column" id = "but">
+						<button type="submit" class="btn"><font size = "5">4DKS</font></button></p>
+				</div>
+			</form>
+	</div>
+	<div>
+	<hr style="border:3px double #5A5AAD" width="100%" size="3" />
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-8 column">
+			<table class="table" rules='rows'  frame='void'>
+				<tbody>
+				$for i in dict:
+					<div id = "sres">
+						<tr class = "active" colspan="3px">
+							<td width = "120">
+							<div id = "likeit">
+										<a href = "$i[0]"><img alt="" src="$i[2]" width="120" height="120"></a>
+								$if (session.username!=''):
+									<div id = "shoucang">
+										<form action="" id="" method="POST" target="id_iframe"> 
+											<input type="hidden"  name="favorite" value="$i[1]_$i[12]" >
+											<button type="submit" style= "font-size:4px;"><font color = "#FF0000">收藏</font></button>
+										</form> 
+										<iframe id="id_iframe" name="id_iframe" style="display:none;"></iframe>
+									</div>
+								$else:
+									$pass
+								</div>
+							</td>
+							<td width = "400">
+								<font size = "4"><p><a href = "$i[0]" class = "link1">店名:$i[1]</a></p>
+								<p><font size = "3">地址:$i[4]</font></p>
+								$if (i[8] == ''):
+									$pass
+								$else:
+									<p><font size = "3">电话:$i[8]</font></p>
+								$if (i[7] == ''):
+									$pass
+								$else:
+									<p><font size = "3">评论:</font><font size = "2">$i[7]</font></p>
+							</td>
+							<td width = "300">
+							<font size ="3" >人均：</font><font size = "5" color = "#FF0000" face = "黑体"> ￥$i[14]</font>
+							<br />
+							<font size ="3" >评分：</font><font size = "5" color = "#FF0000" face = "黑体"> $i[5]</font><font size ="4" face = "黑体">&nbsp/5</font>
+							<br />
+							<font size ="3" >距离：</font><font size = "3" color = "#FF0000" face = "黑体"> $i[19]</font>
+							<br />
+							<a href = "$i[6]"><button style = "font-size:10px;"><font color = "#FF0000">查看地图</font></button></a>
+							
+							</td>
+						</tr>
+					</div>
+
+
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4 column">
+			<table class="table">
+				<thead>
+					<font size = "4">猜您喜欢</font>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+						<div id = "likeit">
+									<a href = "$session.recommend[0][0]"><img alt="" width="120" height="120" src="$session.recommend[0][2]"></a>
+							
+									
+							</div>
+						</td>
+						<td>
+							<font size = "3"><a href = "$session.recommend[0][0]" class = "link1"><p>店名:$session.recommend[0][1]</p></a>
+							<p>地址:$session.recommend[0][4]</p>
+							<p>评分:$session.recommend[0][5] &nbsp/5</p></font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<div id = "likeit">
+									<a href = "$session.recommend[1][0]"><img alt="" width="120" height="120" src="$session.recommend[1][2]"></a>
+							
+									
+							</div>
+						</td>
+						<td>
+							<font size = "3"><a href = "$session.recommend[1][0]" class = "link1"><p>店名:$session.recommend[1][1]</p></a>
+							<p>地址:$session.recommend[1][4]</p>
+							<p>评分:$session.recommend[1][5] &nbsp/5</p></font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+						<div id = "likeit">
+									<a href = "$session.recommend[2][0]"><img alt="" width="120" height="120" src="$session.recommend[2][2]"></a>
+							
+									
+							</div>
+						</td>
+						<td>
+							<font size = "3"><a href = "$session.recommend[2][0]" class = "link1"><p>店名:$session.recommend[2][1]</p></a>
+							<p>地址:$session.recommend[2][4]</p>
+							<p>评分:$session.recommend[2][5] &nbsp/5</p></font>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div>
+		<hr style="border:3px double #5A5AAD" width="100%" size="3" />
+	</div>
+	<div id = "about">
+		<p>*<a href = "http://www.baidu.com/">联系我们</a>*<a href = "http://www.baidu.com/">关于我们</a>*</p>
+	</div>
+</div>
+<div id="btt"><a href="#" color="#6C2DC7">回到顶部</a></div>
+</body>
+</html>
